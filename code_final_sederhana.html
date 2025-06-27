@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   For Chasyifa's Special Day
+  </title>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap');
+        
+        :root {
+            --rose: #FF9999;
+            --gold: #FFD166;
+            --mint: #06D6A0;
+            --sky: #118AB2;
+            --navy: #073B4C;
+            --white: #FFFDFA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            color: var(--navy);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            line-height: 1.8;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 3rem 4rem;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 253, 250, 0.88);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: scale(0.95);
+            transition: transform 0.5s;
+        }
+        
+        .container:hover {
+            transform: scale(1);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            transform: scale(0);
+            animation: scaleIn 1.2s forwards 0.5s;
+            background: linear-gradient(to right, #e73c7e, #118AB2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2.name {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 1s;
+            color: var(--navy);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2.name::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rose), var(--gold));
+            border-radius: 2px;
+        }
+        
+        .message {
+            padding: 2.5rem;
+            margin: 2rem 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1.5s;
+            position: relative;
+            text-align: center;
+        }
+        
+        .message p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 300;
+        }
+        
+        .message p.highlight {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin: 2.5rem 0;
+            color: var(--sky);
+            font-weight: 500;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
+        
+        .gallery-item {
+            width: 100%;
+            height: 130px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        button {
+            background: linear-gradient(45deg, var(--rose), var(--gold));
+            color: var(--navy);
+            border: none;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.4s;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2.5s;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+        
+        button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+        
+        button:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .signature {
+            margin-top: 3rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--rose);
+            opacity: 0;
+            animation: fadeIn 2s forwards 3s;
+        }
+        
+        .floating {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0;
+            z-index: 1;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+            animation: floatUp linear infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+                width: 95%;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2.name {
+                font-size: 1.8rem;
+            }
+            
+            .message {
+                padding: 1.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                height: 100px;
+            }
+        }
+    
+.gallery-photo {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.gallery-photo:hover {
+    transform: scale(1.05);
+}
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <h1>
+    Happy Birthday
+   </h1>
+   <h2 class="name">
+    Chasyifa
+   </h2>
+   <div class="message">
+    <p>
+     Hari ini bukan hari biasa. Ini adalah hari yang indah karena kamu lahir ke dunia.
+    </p>
+    <p>
+     Chasyifa, kamu adalah pribadi yang selalu membawa senyum dan semangat. Kehadiranmu memberi warna di setiap hari.
+    </p>
+    <p class="highlight">
+     "Langit pun seolah lebih cerah, karena hari ini adalah harimu."
+    </p>
+    <p>
+     Di hari spesial ini, aku ingin mendoakan yang terbaik untukmu:
+    </p>
+    <p>
+     • Kebahagiaan yang tulus
+    </p>
+    <p>
+     • Kesehatan yang selalu menyertai
+    </p>
+    <p>
+     • Impian yang satu per satu tercapai
+    </p>
+    <p>
+     • Orang-orang baik yang selalu mendukungmu
+    </p>
+    <p class="highlight">
+     Selamat ulang tahun, semoga hidupmu selalu penuh cinta dan cahaya.
+    </p>
+   </div>
+   <div class="gallery">
+    <img alt="Foto Chasyifa" class="gallery-photo" src="New folder/foto3.jpg"/>
+    <img alt="Foto Chasyifa" class="gallery-photo" src="New folder/foto.png"/>
+    <img alt="Foto Chasyifa" class="gallery-photo" src="New folder/foto1.png"/>
+    <img alt="Foto Chasyifa" class="gallery-photo" src="New folder/foto2.png"/>
+   </div>
+   <div class="gallery-item">
+    🎀
+   </div>
+   <div class="gallery-item">
+    🦋
+   </div>
+   <div class="gallery-item">
+    🌸
+   </div>
+   <div class="gallery-item">
+    🍰
+   </div>
+   <div class="gallery-item">
+    💫
+   </div>
+  </div>
+  <button id="celebrateBtn">
+   Buka Kejutan untuk Chasyifa
+  </button>
+  <div class="signature">
+   Dengan kasih,
+   <br/>
+   Your Special Friend
+  </div>
+  <div id="floatingElements">
+  </div>
+  <audio id="birthdayAudio" loop="">
+   <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg"/>
+  </audio>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+            const celebrateBtn = document.getElementById('celebrateBtn');
+            const audio = document.getElementById('birthdayAudio');
+            const floatingElements = document.getElementById('floatingElements');
+            
+            // Create floating elements
+            function createFloatingElements() {
+                const elements = ['🌸', '🌟', '💝', '🎀', '🌷', '✨'];
+                const colors = ['#FF9999', '#FFD166', '#06D6A0', '#118AB2'];
+                
+                for (let i = 0; i < 12; i++) {
+                    const element = document.createElement('div');
+                    element.className = 'floating';
+                    element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                    element.style.left = Math.random() * 100 + 'vw';
+                    element.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                    element.style.animationDelay = Math.random() * 3 + 's';
+                    element.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    element.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    
+                    floatingElements.appendChild(element);
+                }
+            }
+            
+            createFloatingElements();
+            
+            // Start music automatically (muted until user interaction)
+            audio.volume = 0;
+            audio.play().catch(e => console.log("Auto-play prevented"));
+            
+            celebrateBtn.addEventListener('click', function() {
+                // Create confetti effect
+                createConfetti();
+                
+                // Enable audio
+                audio.volume = 0.4;
+                audio.play().catch(e => console.log("Play prevented"));
+                
+                // Change button text and style
+                this.textContent = 'Selamat Ulang Tahun Chasyifa!';
+                this.style.background = 'linear-gradient(45deg, var(--mint), var(--sky))';
+                this.style.animation = 'pulse 1.5s infinite';
+                
+                // Intensify background animation
+                document.body.style.animation = 'gradientBG 8s ease infinite';
+                
+                // Create more floating elements
+                setInterval(createFloatingElements, 3000);
+                
+                // Create name hearts animation
+                createNameHearts();
+            });
+            
+            function createConfetti() {
+                const shapes = ['🌸', '💐', '🌺', '🌻', '🌼', '🏵️', '💮', '🌹', '🥀', '🌷'];
+                
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'floating';
+                    confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = -10 + 'px';
+                    confetti.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 10000);
+                }
+            }
+            
+            function createNameHearts() {
+                const nameTag = document.querySelector('.name');
+                const colors = ['#FF9999', '#FFD166', '#06D6A0', '#118AB2'];
+                
+                for (let i = 0; i < 20; i++) {
+                    const heart = document.createElement('span');
+                    heart.textContent = '❤️';
+                    heart.style.position = 'absolute';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.animation = `floatUp ${Math.random() * 3 + 2}s linear forwards`;
+                    heart.style.left = (Math.random() * 80 + 10) + '%';
+                    heart.style.top = '100%';
+                    heart.style.opacity = '0';
+                    
+                    nameTag.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.style.opacity = '1';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }
+            }
+        });
+  </script>
+  <div id="lightbox">
+   <img alt="Zoom" src=""/>
+  </div>
+  <script>
+   const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery-photo').forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+        });
+    });
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+  </script>
+ </body>
+</html>
